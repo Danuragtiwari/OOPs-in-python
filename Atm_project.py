@@ -1,0 +1,64 @@
+class Atm:
+   
+    # function or method
+    def __init__(self): #init is a Constructor,it is special method,in which it execute automatically when object of that class is created.
+        
+        self.pin=''
+        self.balance=0
+        self.menu()
+    def menu(self):
+        user_input=input(""" Hello,How would you like to proceed?
+                         1.Enter 1 to create Pin
+                         2.Enter 2 to Deposit
+                         3.Enter 3 to Withdraw 
+                         4.Enter 4 to check Balance
+                         5.Enter 5 to Exit
+                         """)
+        if user_input=='1':
+            self.create_pin()
+            print('Create Pin')
+        elif user_input=='2':
+            self.deposit()
+            print('Deposit')
+        elif user_input=='3':
+            self.withdraw()
+            print('WithDraw')
+        elif user_input=='4':
+            self.check_balance()
+            print('Check Balance')
+        else:
+            print('Exit')
+    def create_pin(self):
+        self.pin=input('Enter Your Pin')
+        
+        print('Pin set Successfully')
+    def deposit(self):
+        temp=input('Enter your Pin')
+        if temp==self.pin:
+            amt=int(input('Enter Amount'))
+            self.deposit+=amt 
+            print('Deposit Successfully!')
+        else:
+            print('''Wrong Pin
+                Try later ;(''')
+    def withdraw(self):
+        temp=input('Enter your Pin')
+        if temp==self.pin: 
+            amt=int(input('Enter money to be withdraw'))
+            if amt<self.balance:
+                self.balance_=amt  
+            else:
+                print('Insufficient funds ')
+        else:
+            print('Invalid Pin')     
+    def check_balance(self):
+        temp=input('Enter your Pin')
+        if temp==self.pin:
+            print(self.balance )
+        else:
+            print('Invalid Pin')
+         
+        
+g=Atm()
+
+        
