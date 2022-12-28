@@ -32,6 +32,7 @@ class Atm:
         self.pin=input('Enter Your Pin')
         
         print('Pin set Successfully')
+        self.menu()
     def deposit(self):
         temp=input('Enter your Pin')
         if temp==self.pin:
@@ -41,22 +42,25 @@ class Atm:
         else:
             print('''Wrong Pin
                 Try later ;(''')
+        self.menu()
     def withdraw(self):
         temp=input('Enter your Pin')
         if temp==self.pin: 
             amt=int(input('Enter money to be withdraw'))
             if amt<self.balance:
-                self.balance_=amt  
+                self.balance-=amt  
             else:
                 print('Insufficient funds ')
         else:
             print('Invalid Pin')     
+        self.menu()
     def check_balance(self):
         temp=input('Enter your Pin')
         if temp==self.pin:
             print(self.balance )
         else:
             print('Invalid Pin')
+        self.menu()
          
         
 g=Atm()
